@@ -1,0 +1,105 @@
+<!-- Main Container: Full viewport height, centered content -->
+<div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center">
+  <!-- Reset Password Card -->
+  <div class="card login-card">
+    <span class="icon-wrapper text-center mt-3">
+      <i class="bi bi-controller controller"></i>
+    </span>
+
+    <div class="card-body mt-0 py-0">
+      <!-- Header Section: Title and subtitle -->
+      <div class="text-center mb-4 py-0">
+        <h1 class="bold card-title mb-2 mt-0 text-white">
+          Reset your password
+        </h1>
+        <p class="card-subtitle text-white">Set your new password</p>
+      </div>
+      <!-- Tab Content: Forms -->
+      <div class="tab-content" id="authTabsContent">
+        <!-- Reset Form -->
+        <div class="tab-pane fade show active" id="retrieval" role="tabpanel">
+          <form>
+            <!-- New Password Input -->
+            <div class="mb-3">
+              <label for="newPassword" class="form-label">New password</label>
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="bi bi-lock"></i>
+                </span>
+                <input type="password" class="form-control" id="newPassword" placeholder="Your new password" required />
+                <button class="btn btn-outline-secondary" type="button" id="toggleNewPassword">
+                  <i class="bi bi-eye" id="toggleIconNewPassword"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Confirm new password -->
+            <div class="mb-5">
+              <label for="confirmPassword" class="form-label">Confirm your password</label>
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="bi bi-lock"></i>
+                </span>
+                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password"
+                  required />
+                <button class="btn btn-outline-secondary" type="button" id="toggleConfirmPassword">
+                  <i class="bi bi-eye" id="toggleIconConfirmPassword"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Reset Password Button -->
+            <a href="/signin" class="btn btn-primary mb-3 w-100">
+              Reset Password
+            </a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Toggle password visibility
+  const togglePassword = document.getElementById("toggleNewPassword");
+  const passwordInput = document.getElementById("newPassword");
+  const toggleIcon = document.getElementById("toggleIconNewPassword");
+  const togglePasswordConfirm = document.getElementById("toggleConfirmPassword");
+  const passwordInputConfirm = document.getElementById("confirmPassword");
+  const toggleIconConfirm = document.getElementById("toggleIconConfirmPassword");
+
+  togglePassword.addEventListener("click", function () {
+    // Toggle the input type between 'password' and 'text'
+    const typeNew =
+      passwordInput.getAttribute("type") === "password"
+        ? "text"
+        : "password";
+    passwordInput.setAttribute("type", typeNew);
+    // Toggle the icon between eye and eye-slash
+    if (typeNew === "text") {
+      toggleIcon.classList.remove("bi-eye");
+      toggleIcon.classList.add("bi-eye-slash");
+    } else {
+      toggleIcon.classList.remove("bi-eye-slash");
+      toggleIcon.classList.add("bi-eye");
+    }
+  });
+
+  togglePasswordConfirm.addEventListener("click", function () {
+    // Toggle the input type between 'password' and 'text'
+    const typeConfirm =
+      passwordInputConfirm.getAttribute("type") === "password"
+        ? "text"
+        : "password";
+    passwordInputConfirm.setAttribute("type", typeConfirm);
+
+    // Toggle the icon between eye and eye-slash
+    if (typeConfirm === "text") {
+      toggleIconConfirm.classList.remove("bi-eye");
+      toggleIconConfirm.classList.add("bi-eye-slash");
+    } else {
+      toggleIconConfirm.classList.remove("bi-eye-slash");
+      toggleIconConfirm.classList.add("bi-eye");
+    }
+  });
+</script>

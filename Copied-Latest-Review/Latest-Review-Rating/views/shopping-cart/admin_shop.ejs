@@ -1,0 +1,671 @@
+<div class="container-fluid shopping-background mt-2 pt-4 pb-5">
+    <div class="container">
+        <div class="d-flex flex-md-row flex-column justify-content-md-between align-items-md-center justify-content-center align-items-start">
+            <div class="mt-md-0 mt-3 order-md-1 order-2 d-flex flex-column justify-content-center align-items-stretch">
+                <h1 class="shopping-title fw-bold">Game Store</h1>
+                <p class="muted">Browse our collection of amazing games and discover the latest and greatest titles that every gamer will love.</p>
+            </div>
+
+            <div class="order-md-2 order-1 d-flex flex-row justify-content-center align-items-center gap-2">
+                <span class="admin-mode py-2 px-3 fw-bold">
+                    <span><i class="bi bi-shield-fill fw-bold"></i></span>
+                    Admin Mode
+                </span>
+
+                <button type="button" class="create-product-btn py-2 px-3 border-0 outline-0 text-center" data-bs-toggle="modal" data-bs-target="#createProduct" data-bs-whatever="Create Product">
+                    <span><i class="bi bi-plus"></i></span>
+                    Create Product
+                </button>
+            </div>
+        </div>
+
+        <div class="row mt-3 d-flex align-items-center justify-content-center gap-md-0 gap-3">
+            <div class="col-md-9">
+                <div class="search-container position-relative d-flex align-items-center">
+                    <span class="search-icon position-absolute"><i class="bi bi-search"></i></span>
+                    <input type="text" id="searchGame" name="searchGame" placeholder="Search games..." class="input-search w-100 p-2 ps-5">
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="dropdown">
+                    <button class="dropdown-toggle w-100 text-start customize-search-filter p-2" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="searchFilterDropdown">
+                        <span id="selectedSearchFilter">Title: A-Z</span>
+                    </button>
+
+                    <ul class="dropdown-menu w-100 border-0 outline-0 rounded-3 m-0 p-1 mt-1 position-absolute" aria-labelledby="searchFilterDropdown">
+                        <li>
+                            <a class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden" href="/title-a-z"  data-value="Title: A-Z">
+                                <span class="checkmark"><i class="bi bi-check2"></i></span>
+                                Title: A-Z
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden" href="/title-z-a" data-value="Title: Z-A">
+                                <span class="checkmark"><i class="bi bi-check2"></i></span>
+                                Title: Z-A
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden" href="/price-low-high" data-value="Price: Low to High">
+                                <span class="checkmark"><i class="bi bi-check2"></i></span>
+                                Price: Low to High
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden" href="/price-high-low" data-value="Price: High to Low">
+                                <span class="checkmark"><i class="bi bi-check2"></i></span>
+                                Price: High to Low
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden" href="/least-in-stock" data-value="Quantity: Least in Stock">
+                                <span class="checkmark"><i class="bi bi-check2"></i></span>
+                                Quantity: Least in Stock
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden" href="/most-in-stock" data-value="Quantity: Most in Stock">
+                                <span class="checkmark"><i class="bi bi-check2"></i></span>
+                                Quantity: Most in Stock
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4 g-md-3 g-4 row-cols-1 row-cols-md-4">
+            <div class="col d-flex">
+                <div class="card customize-card overflow-hidden h-100">
+                    <a href="/shop/game/123" class="img-thumbnail d-block overflow-hidden border-0 p-0">
+                        <img src="/img/image_1.jpeg" class="customize-card-img card-img-top img-fluid d-block w-100" alt="Item 1">
+                    </a>
+
+                    <div class="card-body d-flex flex-column">
+                        <a href="/shop/game/123" class="card-info text-decoration-none">
+                            <h5 class="card-title fw-bold">Cyberpunk 2077</h5>
+                        </a>
+                        <p class="card-text muted flex-grow-1">Open-world action-adventure game</p>
+                        <p class="card-text muted d-flex align-items-center justify-content-start gap-3">
+                            <span class="star-collections">
+                                <span><i class="bi bi-star-fill star-color"></i></span>
+                                <span><i class="bi bi-star-fill star-color"></i></span>
+                                <span><i class="bi bi-star-fill star-color"></i></span>
+                                <span><i class="bi bi-star-fill star-color"></i></span>
+                                <span><i class="bi bi-star"></i></span>
+                            </span>
+
+                            <span class="muted ratings-gamevault">(4.8)</span>
+                        </p>
+
+                        <a href="/category/RPG" class="category rounded-5 px-2 py-1 text-decoration-none mb-2 mt-0 align-self-start w-auto">RPG</a>
+
+                        <div class="stock-price-container d-flex flex-row align-items-center justify-content-between">
+                            <span class="price fs-3 fw-bold">$49.99</span>
+                            <span class="muted stock">Stock: 75</span>
+                        </div>
+
+                        <form class="d-flex flex-column gap-3 mt-4">
+                            <div>
+                                <label for="edition" class="form-label fw-bold mb-1">Edition</label>
+
+                                <div class="dropdown">
+                                    <button class="dropdown-toggle w-100 text-start customize-edition-options outline-0 p-2 ps-3" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="editionDropdown">
+                                        <span id="selectedEdition">Standard</span>
+                                    </button>
+
+                                    <ul class="dropdown-menu w-100 border-0 outline-0 rounded-3 m-0 p-1 mt-1 position-absolute" aria-labelledby="editionDropdown">
+                                        <li>
+                                            <a class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden" href="/standard"  data-value="Standard">
+                                                <span class="checkmark"><i class="bi bi-check2"></i></span>
+                                                Standard
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden" href="/deluxe" data-value="Deluxe">
+                                                <span class="checkmark"><i class="bi bi-check2"></i></span>
+                                                Deluxe
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden" href="/ultimate" data-value="Ultimate">
+                                                <span class="checkmark"><i class="bi bi-check2"></i></span>
+                                                Ultimate
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="quantity-input-container">
+                                <label for="quantity" class="form-label fw-bold mb-1">Quantity</label>
+                                <input type="number" class="form-control border-0 outline-0 mt-0 p-2 ps-3" name="quantity" id="quantity" min="1" value="1">
+                            </div>
+                        </form>
+
+                        <a href="/shop" class="btn mx-auto text-center add-to-cart-btn w-100 d-flex align-items-center justify-content-center gap-2 mt-3 rounded-3 py-2">
+                            <span><i class="bi bi-cart"></i></span>
+                            Add to Cart
+                        </a>
+                    </div>
+
+                    <div class="card-footer border-0 my-2 d-block w-100 d-flex flex-row justify-content-center align-items-center gap-3">
+                        <button type="button" class="edit-product-btn py-2 px-3 border-0 outline-0 text-center flex-fill" data-bs-toggle="modal" data-bs-target="#editProduct" data-bs-whatever="Edit Product">
+                            <span><i class="bi bi-pencil-square"></i></span>
+                            Edit Product
+                        </button>
+
+                        <a class="py-2 px-3 text-decoration-none delete-product-btn flex-fillborder-0 outline-0 text-center" href="/delete/123">
+                            <span><i class="bi bi-trash"></i></span>
+                            Delete
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col d-flex">
+                <div class="card customize-card overflow-hidden h-100">
+                    <a href="/shop/game/123" class="img-thumbnail d-block overflow-hidden border-0 p-0">
+                        <img src="/img/image_2.jpeg" class="customize-card-img card-img-top img-fluid d-block w-100" alt="Item 2">
+                    </a>
+
+                    <div class="card-body d-flex flex-column">
+                        <a href="/shop/game/123" class="card-info text-decoration-none">
+                            <h5 class="card-title fw-bold">Elden Ring</h5>
+                        </a>
+                        <p class="card-text muted flex-grow-1">Epic action RPG from FromSoftware</p>
+                        <p class="card-text muted d-flex align-items-center justify-content-start gap-3">
+                            <span class="star-collections">
+                                <span><i class="bi bi-star-fill star-color"></i></span>
+                                <span><i class="bi bi-star-fill star-color"></i></span>
+                                <span><i class="bi bi-star-fill star-color"></i></span>
+                                <span><i class="bi bi-star-fill star-color"></i></span>
+                                <span><i class="bi bi-star"></i></span>
+                            </span>
+
+                            <span class="muted ratings-gamevault">(4.8)</span>
+                        </p>
+
+                        <a href="/category/RPG" class="category rounded-5 px-2 py-1 text-decoration-none mb-2 mt-0 align-self-start w-auto">RPG</a>
+
+                        <div class="stock-price-container d-flex flex-row align-items-center justify-content-between">
+                            <span class="price fs-3 fw-bold">$59.99</span>
+                            <span class="muted stock">Stock: 100</span>
+                        </div>
+
+                        <form class="d-flex flex-column gap-3 mt-4">
+                            <div>
+                                <label for="edition" class="form-label fw-bold mb-1">Edition</label>
+
+                                <div class="dropdown">
+                                    <button class="dropdown-toggle w-100 text-start customize-edition-options outline-0 p-2 ps-3" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="editionDropdown">
+                                        <span id="selectedEdition">Standard</span>
+                                    </button>
+
+                                    <ul class="dropdown-menu w-100 border-0 outline-0 rounded-3 m-0 p-1 mt-1 position-absolute" aria-labelledby="editionDropdown">
+                                        <li>
+                                            <a class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden" href="/standard"  data-value="Standard">
+                                                <span class="checkmark"><i class="bi bi-check2"></i></span>
+                                                Standard
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden" href="/deluxe" data-value="Deluxe">
+                                                <span class="checkmark"><i class="bi bi-check2"></i></span>
+                                                Deluxe
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden" href="/ultimate" data-value="Ultimate">
+                                                <span class="checkmark"><i class="bi bi-check2"></i></span>
+                                                Ultimate
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="quantity-input-container">
+                                <label for="quantity" class="form-label fw-bold mb-1">Quantity</label>
+                                <input type="number" class="form-control border-0 outline-0 mt-0 p-2 ps-3" name="quantity" id="quantity" min="1" value="1">
+                            </div>
+                        </form>
+
+                        <a href="/shop" class="btn mx-auto text-center add-to-cart-btn w-100 d-flex align-items-center justify-content-center gap-2 mt-3 rounded-3 py-2">
+                            <span><i class="bi bi-cart"></i></span>
+                            Add to Cart
+                        </a>
+                    </div>
+
+                    <div class="card-footer border-0 my-2 d-block w-100 d-flex flex-row justify-content-center align-items-center gap-3">
+                        <button type="button" class="edit-product-btn py-2 px-3 border-0 outline-0 text-center flex-fill" data-bs-toggle="modal" data-bs-target="#editProduct" data-bs-whatever="Edit Product">
+                            <span><i class="bi bi-pencil-square"></i></span>
+                            Edit Product
+                        </button>
+
+                        <a class="py-2 px-3 text-decoration-none delete-product-btn flex-fillborder-0 outline-0 text-center" href="/delete/123">
+                            <span><i class="bi bi-trash"></i></span>
+                            Delete
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col d-flex">
+                <div class="card customize-card overflow-hidden h-100">
+                    <a href="/shop/game/123" class="img-thumbnail d-block overflow-hidden border-0 p-0">
+                        <img src="/img/image_1.jpeg" class="customize-card-img card-img-top img-fluid d-block w-100" alt="Item 3">
+                    </a>
+
+                    <div class="card-body d-flex flex-column">
+                        <a href="/shop/game/123" class="card-info text-decoration-none">
+                            <h5 class="card-title fw-bold">God of War</h5>
+                        </a>
+                        <p class="card-text muted flex-grow-1">Action-adventure based on Norse mythology</p>
+                        <p class="card-text muted d-flex align-items-center justify-content-start gap-3">
+                            <span class="star-collections">
+                                <span><i class="bi bi-star-fill star-color"></i></span>
+                                <span><i class="bi bi-star-fill star-color"></i></span>
+                                <span><i class="bi bi-star-fill star-color"></i></span>
+                                <span><i class="bi bi-star-fill star-color"></i></span>
+                                <span><i class="bi bi-star"></i></span>
+                            </span>
+
+                            <span class="muted ratings-gamevault">(4.8)</span>
+                        </p>
+
+                        <a href="/category/RPG" class="category rounded-5 px-2 py-1 text-decoration-none mb-2 mt-0 align-self-start w-auto">RPG</a>
+
+                        <div class="stock-price-container d-flex flex-row align-items-center justify-content-between">
+                            <span class="price fs-3 fw-bold">$59.99</span>
+                            <span class="muted stock">Stock: 90</span>
+                        </div>
+
+                        <form class="d-flex flex-column gap-3 mt-4">
+                            <div>
+                                <label for="edition" class="form-label fw-bold mb-1">Edition</label>
+
+                                <div class="dropdown">
+                                    <button class="dropdown-toggle w-100 text-start customize-edition-options outline-0 p-2 ps-3" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="editionDropdown">
+                                        <span id="selectedEdition">Standard</span>
+                                    </button>
+
+                                    <ul class="dropdown-menu w-100 border-0 outline-0 rounded-3 m-0 p-1 mt-1 position-absolute" aria-labelledby="editionDropdown">
+                                        <li>
+                                            <a class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden" href="/standard"  data-value="Standard">
+                                                <span class="checkmark"><i class="bi bi-check2"></i></span>
+                                                Standard
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden" href="/deluxe" data-value="Deluxe">
+                                                <span class="checkmark"><i class="bi bi-check2"></i></span>
+                                                Deluxe
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden" href="/ultimate" data-value="Ultimate">
+                                                <span class="checkmark"><i class="bi bi-check2"></i></span>
+                                                Ultimate
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="quantity-input-container">
+                                <label for="quantity" class="form-label fw-bold mb-1">Quantity</label>
+                                <input type="number" class="form-control border-0 outline-0 mt-0 p-2 ps-3" name="quantity" id="quantity" min="1" value="1">
+                            </div>
+                        </form>
+
+                        <a href="/shop" class="btn mx-auto text-center add-to-cart-btn w-100 d-flex align-items-center justify-content-center gap-2 mt-3 rounded-3 py-2">
+                            <span><i class="bi bi-cart"></i></span>
+                            Add to Cart
+                        </a>
+                    </div>
+
+                    <div class="card-footer border-0 my-2 d-block w-100 d-flex flex-row justify-content-center align-items-center gap-3">
+                        <button type="button" class="edit-product-btn py-2 px-3 border-0 outline-0 text-center flex-fill" data-bs-toggle="modal" data-bs-target="#editProduct" data-bs-whatever="Edit Product">
+                            <span><i class="bi bi-pencil-square"></i></span>
+                            Edit Product
+                        </button>
+
+                        <a class="py-2 px-3 text-decoration-none delete-product-btn flex-fillborder-0 outline-0 text-center" href="/delete/123">
+                            <span><i class="bi bi-trash"></i></span>
+                            Delete
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col d-flex">
+                <div class="card customize-card overflow-hidden h-100">
+                    <a href="/shop/game/123" class="img-thumbnail d-block overflow-hidden border-0 p-0">
+                        <img src="/img/image_3.jpeg" class="customize-card-img card-img-top img-fluid d-block w-100" alt="Item 4">
+                    </a>
+
+                    <div class="card-body d-flex flex-column">
+                        <a href="/shop/game/123" class="card-info text-decoration-none">
+                            <h5 class="card-title fw-bold">The Witcher 3</h5>
+                        </a>
+                        <p class="card-text muted flex-grow-1">Fantasy RPG masterpiece</p>
+                        <p class="card-text muted d-flex align-items-center justify-content-start gap-3">
+                            <span class="star-collections">
+                                <span><i class="bi bi-star-fill star-color"></i></span>
+                                <span><i class="bi bi-star-fill star-color"></i></span>
+                                <span><i class="bi bi-star-fill star-color"></i></span>
+                                <span><i class="bi bi-star-fill star-color"></i></span>
+                                <span><i class="bi bi-star"></i></span>
+                            </span>
+
+                            <span class="muted ratings-gamevault">(4.8)</span>
+                        </p>
+
+                        <a href="/category/RPG" class="category rounded-5 px-2 py-1 text-decoration-none mb-2 mt-0 align-self-start w-auto">RPG</a>
+
+                        <div class="stock-price-container d-flex flex-row align-items-center justify-content-between">
+                            <span class="price fs-3 fw-bold">$39.99</span>
+                            <span class="muted stock">Stock: 100</span>
+                        </div>
+
+                        <form class="d-flex flex-column gap-3 mt-4">
+                            <div>
+                                <label for="edition" class="form-label fw-bold mb-1">Edition</label>
+
+                                <div class="dropdown">
+                                    <button class="dropdown-toggle w-100 text-start customize-edition-options outline-0 p-2 ps-3" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="editionDropdown">
+                                        <span id="selectedEdition">Standard</span>
+                                    </button>
+
+                                    <ul class="dropdown-menu w-100 outline-0 rounded-3 m-0 p-1 mt-1 position-absolute" aria-labelledby="editionDropdown">
+                                        <li>
+                                            <a class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden" href="/standard"  data-value="Standard">
+                                                <span class="checkmark"><i class="bi bi-check2"></i></span>
+                                                Standard
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden" href="/deluxe" data-value="Deluxe">
+                                                <span class="checkmark"><i class="bi bi-check2"></i></span>
+                                                Deluxe
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden" href="/ultimate" data-value="Ultimate">
+                                                <span class="checkmark"><i class="bi bi-check2"></i></span>
+                                                Ultimate
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="quantity-input-container">
+                                <label for="quantity" class="form-label fw-bold mb-1">Quantity</label>
+                                <input type="number" class="form-control border-0 outline-0 mt-0 p-2 ps-3" name="quantity" id="quantity" min="1" value="1">
+                            </div>
+                        </form>
+
+                        <a href="/shop" class="btn mx-auto text-center add-to-cart-btn w-100 d-flex align-items-center justify-content-center gap-2 mt-3 rounded-3 py-2">
+                            <span><i class="bi bi-cart"></i></span>
+                            Add to Cart
+                        </a>
+                    </div>
+
+                    <div class="card-footer border-0 my-2 d-block w-100 d-flex flex-row justify-content-center align-items-center gap-3">
+                        <button type="button" class="edit-product-btn py-2 px-3 border-0 outline-0 text-center flex-fill" data-bs-toggle="modal" data-bs-target="#editProduct" data-bs-whatever="Edit Product">
+                            <span><i class="bi bi-pencil-square"></i></span>
+                            Edit Product
+                        </button>
+
+                        <a class="py-2 px-3 text-decoration-none delete-product-btn flex-fillborder-0 outline-0 text-center" href="/delete/123">
+                            <span><i class="bi bi-trash"></i></span>
+                            Delete
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="createProduct" tabindex="-1" aria-labelledby="Create Product" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+        <div class="modal-content create-product-background">
+            <div class="modal-header">
+                <span class="modal-title create-product-title fw-bold" id="createProduct">Create New Product</span>
+
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form class="create-product-form">
+                    <div class="mb-3">
+                        <label for="create-product-title" class="col form-label fw-bold">Title</label>
+                        <input type="text" class="form-control border-0 outline-0" id="create-product-title" name="create-product-title" placeholder="Product Title" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="create-product-description" class="col form-label fw-bold">Description</label>
+                        <textarea class="form-control border-0 outline-0" id="create-product-description" name="create-product-description" placeholder="Product Description" required rows="3"></textarea>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="create-product-price" class="col form-label fw-bold">Price</label>
+                            <input type="number" class="form-control border-0 outline-0" id="create-product-price" name="create-product-price" value="0" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="create-product-stock" class="col form-label fw-bold">Stock</label>
+                            <input type="text" class="form-control border-0 outline-0" id="create-product-stock" name="create-product-stock" value="0" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="create-product-developer" class="col form-label fw-bold">Developer</label>
+                        <input type="text" class="form-control border-0 outline-0" id="create-product-developer" name="create-product-developer" placeholder="Product Developer" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="create-product-publisher" class="col form-label fw-bold">Publisher</label>
+                        <input type="text" class="form-control border-0 outline-0" id="create-product-publisher" name="create-product-publisher" placeholder="Product Publisher" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="create-product-release-date" class="col form-label fw-bold">Release Date</label>
+                        <input type="date" class="form-control border-0 outline-0" id="create-product-release-date" name="create-product-release-date" placeholder="Product Release Date" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="create-product-image" class="col form-label fw-bold">Image</label>
+                        <input type="file" class="form-control border-0 outline-0" id="create-product-image" name="create-product-image">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="create-product-categories" class="col form-label fw-bold">Categories (select one or multiple)</label>
+                        <div class="create-product-categories-container">
+                            <div class="col d-flex flex-row align-items-center gap-2">
+                                <input type="checkbox" id="create-product-action" name="create-product-action">
+                                <label for="create-product-action">Action</label>
+                            </div>
+
+                            <div class="col d-flex flex-row align-items-center gap-2">
+                                <input type="checkbox" id="create-product-adventure" name="create-product-adventure">
+                                <label for="create-product-adventure">Adventure</label>
+                            </div>
+
+                            <div class="col d-flex flex-row align-items-center gap-2">
+                                <input type="checkbox" id="create-product-fps" name="create-product-fps">
+                                <label for="create-product-fps">FPS</label>
+                            </div>
+
+                            <div class="col d-flex flex-row align-items-center gap-2">
+                                <input type="checkbox" id="create-product-horror" name="create-product-horror">
+                                <label for="create-product-horror">Horror</label>
+                            </div>
+
+                            <div class="col d-flex flex-row align-items-center gap-2">
+                                <input type="checkbox" id="create-product-puzzle" name="create-product-puzzle">
+                                <label for="create-product-puzzle">Puzzle</label>
+                            </div>
+
+                            <div class="col d-flex flex-row align-items-center gap-2">
+                                <input type="checkbox" id="create-product-racing" name="create-product-racing">
+                                <label for="create-product-racing">Racing</label>
+                            </div>
+
+                            <div class="col d-flex flex-row align-items-center gap-2">
+                                <input type="checkbox" id="create-product-rpg" name="create-product-rpg">
+                                <label for="create-product-rpg">RPG</label>
+                            </div>
+
+                            <div class="col d-flex flex-row align-items-center gap-2">
+                                <input type="checkbox" id="create-product-simulation" name="create-product-simulation">
+                                <label for="create-product-simulation">Simulation</label>
+                            </div>
+
+                            <div class="col d-flex flex-row align-items-center gap-2">
+                                <input type="checkbox" id="create-product-sports" name="create-product-sports">
+                                <label for="create-product-sports">Sports</label>
+                            </div>
+
+                            <div class="col d-flex flex-row align-items-center gap-2">
+                                <input type="checkbox" id="create-product-strategy" name="create-product-strategy">
+                                <label for="create-product-strategy">Strategy</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="modal-footer d-flex flex-row gap-2">
+                <a type="button" class="close-create-product-btn flex-fill text-center border-0 outline-0 px-3 py-2 text-decoration-none" data-bs-dismiss="modal" href="/shop/admin">Close</a>
+                <a type="button" class="submit-create-product-btn flex-fill text-center border-0 outline-0 px-3 py-2 text-decoration-none" href="/create-product">Create Product</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editProduct" tabindex="-1" aria-labelledby="Edit Product" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+        <div class="modal-content edit-product-background">
+            <div class="modal-header">
+                <span class="modal-title edit-product-title fw-bold" id="editProduct">Edit Product</span>
+
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form class="edit-product-form">
+                    <div class="mb-3">
+                        <label for="edit-product-title" class="col form-label fw-bold">Title</label>
+                        <input type="text" class="form-control border-0 outline-0" id="edit-product-title" name="edit-product-title" value="Cyberpunk 2077" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="edit-product-description" class="col form-label fw-bold">Description</label>
+                        <textarea class="form-control border-0 outline-0" id="edit-product-description" name="edit-product-description" required rows="3">Open-world action-adventure game</textarea>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="edit-product-price" class="col form-label fw-bold">Price</label>
+                            <input type="number" class="form-control border-0 outline-0" id="edit-product-price" name="edit-product-price" value="49.99" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="edit-product-stock" class="col form-label fw-bold">Stock</label>
+                            <input type="text" class="form-control border-0 outline-0" id="edit-product-stock" name="edit-product-stock" value="75" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="edit-product-developer" class="col form-label fw-bold">Developer</label>
+                        <input type="text" class="form-control border-0 outline-0" id="edit-product-developer" name="edit-product-developer" value="CD Projekt Red" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="edit-product-publisher" class="col form-label fw-bold">Publisher</label>
+                        <input type="text" class="form-control border-0 outline-0" id="edit-product-publisher" name="edit-product-publisher" value="CD Projekt" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="edit-product-release-date" class="col form-label fw-bold">Release Date</label>
+                        <input type="date" class="form-control border-0 outline-0" id="edit-product-release-date" name="edit-product-release-date" value="12/10/2020" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="edit-product-image" class="col form-label fw-bold">Image</label>
+                        <input type="file" class="form-control border-0 outline-0" id="edit-product-image" name="edit-product-image">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="edit-product-categories" class="col form-label fw-bold">Categories (select one or multiple)</label>
+                        <div class="edit-product-categories-container">
+                            <div class="col d-flex flex-row align-items-center gap-2">
+                                <input type="checkbox" id="edit-product-action" name="edit-product-action">
+                                <label for="edit-product-action">Action</label>
+                            </div>
+
+                            <div class="col d-flex flex-row align-items-center gap-2">
+                                <input type="checkbox" id="edit-product-adventure" name="edit-product-adventure">
+                                <label for="edit-product-adventure">Adventure</label>
+                            </div>
+
+                            <div class="col d-flex flex-row align-items-center gap-2">
+                                <input type="checkbox" id="edit-product-fps" name="edit-product-fps">
+                                <label for="edit-product-fps">FPS</label>
+                            </div>
+
+                            <div class="col d-flex flex-row align-items-center gap-2">
+                                <input type="checkbox" id="edit-product-horror" name="edit-product-horror">
+                                <label for="edit-product-horror">Horror</label>
+                            </div>
+
+                            <div class="col d-flex flex-row align-items-center gap-2">
+                                <input type="checkbox" id="edit-product-puzzle" name="edit-product-puzzle">
+                                <label for="edit-product-puzzle">Puzzle</label>
+                            </div>
+
+                            <div class="col d-flex flex-row align-items-center gap-2">
+                                <input type="checkbox" id="edit-product-racing" name="edit-product-racing">
+                                <label for="edit-product-racing">Racing</label>
+                            </div>
+
+                            <div class="col d-flex flex-row align-items-center gap-2">
+                                <input type="checkbox" id="edit-product-rpg" name="edit-product-rpg" checked>
+                                <label for="edit-product-rpg">RPG</label>
+                            </div>
+
+                            <div class="col d-flex flex-row align-items-center gap-2">
+                                <input type="checkbox" id="edit-product-simulation" name="edit-product-simulation">
+                                <label for="edit-product-simulation">Simulation</label>
+                            </div>
+
+                            <div class="col d-flex flex-row align-items-center gap-2">
+                                <input type="checkbox" id="edit-product-sports" name="edit-product-sports">
+                                <label for="edit-product-sports">Sports</label>
+                            </div>
+
+                            <div class="col d-flex flex-row align-items-center gap-2">
+                                <input type="checkbox" id="edit-product-strategy" name="edit-product-strategy">
+                                <label for="edit-product-strategy">Strategy</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="modal-footer d-flex flex-row gap-2">
+                <a type="button" class="cancel-edit-product-btn flex-fill text-center border-0 outline-0 px-3 py-2 text-decoration-none" href="/shop/admin" data-bs-dismiss="modal">Cancel</a>
+                <a type="button" class="submit-edit-product-btn flex-fill text-center border-0 outline-0 px-3 py-2 text-decoration-none" href="/save-changes">Save Changes</a>
+            </div>
+        </div>
+    </div>
+</div>

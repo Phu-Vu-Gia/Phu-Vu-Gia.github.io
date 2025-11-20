@@ -1,0 +1,75 @@
+<!-- Main Container: Full viewport height, centered content -->
+<div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center">
+  <!-- Sign Up Card -->
+  <div class="card login-card">
+    <span class="icon-wrapper text-center mt-3">
+      <i class="bi bi-controller controller"></i>
+    </span>
+
+    <div class="card-body mt-0 py-0">
+      <!-- Header Section: Title and subtitle -->
+      <div class="text-center mb-4 py-0">
+        <h1 class="bold card-title mb-2 mt-0 text-white">
+          Security Questions
+        </h1>
+        <p class="card-subtitle text-white">
+          Answer your set security questions to reset your password
+        </p>
+      </div>
+
+      <!-- Tab Content: Forms -->
+      <div class="tab-content" id="authTabsContent">
+        <!-- Security Form -->
+        <div class="tab-pane fade show active" id="security" role="tabpanel">
+          <form>
+            <!-- Question 1 -->
+            <div class="mb-3">
+              <label for="question1" class="form-label">Your question</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="question1" placeholder="Your question" required />
+              </div>
+            </div>
+
+            <!-- Answer 1 -->
+            <div class="mb-5">
+              <label for="answer1" class="form-label">Your answer</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="answer1" placeholder="Your answer" required />
+              </div>
+            </div>
+            <!-- Add Sign Up Button Question Button -->
+            <div class="d-flex flex-row align-items-center gap-2 signup-security-btn-row mb-3">
+              <a class="btn btn-primary mb-3 w-50" href="/signup_security">Add Security Questions</a>
+              <a class="btn btn-primary mb-3 w-50" href="/signin">Sign Up</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Toggle password visibility
+  const togglePassword = document.getElementById("togglePassword");
+  const passwordInput = document.getElementById("signinPassword");
+  const toggleIcon = document.getElementById("toggleIcon");
+
+  togglePassword.addEventListener("click", function () {
+    // Toggle the input type between 'password' and 'text'
+    const type =
+      passwordInput.getAttribute("type") === "password"
+        ? "text"
+        : "password";
+    passwordInput.setAttribute("type", type);
+
+    // Toggle the icon between eye and eye-slash
+    if (type === "text") {
+      toggleIcon.classList.remove("bi-eye");
+      toggleIcon.classList.add("bi-eye-slash");
+    } else {
+      toggleIcon.classList.remove("bi-eye-slash");
+      toggleIcon.classList.add("bi-eye");
+    }
+  });
+</script>

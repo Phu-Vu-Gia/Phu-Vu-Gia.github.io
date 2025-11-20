@@ -1,0 +1,61 @@
+<!-- Main Container: Full viewport height, centered content -->
+<div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center">
+  <!-- Retrieval Card -->
+  <div class="card login-card">
+    <span class="icon-wrapper text-center mt-3">
+      <i class="bi bi-controller controller"></i>
+    </span>
+
+    <div class="card-body mt-0 py-0">
+      <!-- Header Section: Title and subtitle -->
+      <div class="text-center mb-4 py-0">
+        <h1 class="bold card-title mb-2 mt-0 text-white">
+          Security Questions
+        </h1>
+        <p class="card-subtitle text-white">
+          Answer your set security questions to reset your password
+        </p>
+      </div>
+      <!-- Tab Content: Forms -->
+      <div class="tab-content" id="authTabsContent">
+        <!-- Retrieval Form -->
+        <div class="tab-pane fade show active" id="retrieval" role="tabpanel">
+          <form>
+            <!-- Email Input -->
+            <div class="mb-3">
+              <label for="registeredEmail" class="form-label">Email</label>
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="bi bi-envelope"></i>
+                </span>
+                <input type="email" class="form-control" id="registeredEmail" placeholder="Your email" required />
+              </div>
+            </div>
+
+            <!-- Question 1 -->
+            <div class="mb-3">
+              <label for="question1" class="form-label">Your security question</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="question1" placeholder="What is your favorite color?"
+                  required />
+              </div>
+            </div>
+
+            <!-- Answer -->
+            <div class="mb-5">
+              <label for="answer1" class="form-label">Answer</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="answer1" placeholder="Your answer" required />
+              </div>
+            </div>
+
+            <!-- Reset Password Button -->
+            <a href="/reset-pass" class="btn btn-primary mb-3 w-100">
+              Reset Password
+            </a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

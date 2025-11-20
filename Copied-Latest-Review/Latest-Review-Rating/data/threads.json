@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "title": "Best Graphics Settings for Cyberpunk 2077?",
+    "author": "JohnDoe",
+    "content": "Hey everyone! I'm running an RTX 3070 and i7-12700K. What are the best settings for 1440p with ray tracing? I keep getting frame drops in Night City...",
+    "replies": 12,
+    "likes": 6,
+    "liked": true,
+    "createdAt": "2025-11-10T11:46:05.173Z"
+  },
+  {
+    "id": 2,
+    "title": "Anyone playing the new Elden Ring DLC?",
+    "author": "GamerAlex",
+    "content": "Just started Shadow of the Erdtree. The new boss is insane! Anyone found the secret area yet? No spoilers please!",
+    "replies": 8,
+    "likes": 2,
+    "liked": true,
+    "createdAt": "2025-11-10T11:46:05.173Z"
+  }
+]

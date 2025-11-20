@@ -1,0 +1,304 @@
+@import url("variables.css");
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* The main contents */
+.customer-review {
+  display: flex;
+  flex-direction: column;
+  color: var(--foreground);
+  padding: 40px 32px;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+/* Title row */
+.customer-review.title {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: flex-start;
+  position: relative;
+}
+
+.customer-review.title h2 {
+  position: relative;
+  top: -70px;
+}
+
+.review-content a {
+  text-decoration: none;
+  color: var(--foreground);
+}
+
+.review-content a:hover h3 {
+  color: var(--accent);
+}
+
+/* Write Review button */
+.writing-form p {
+  background-color: var(--primary);
+  color: var(--foreground);
+  font-weight: 600;
+  font-size: 20px;
+  padding: 14px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0px 0px 12px rgba(26, 187, 242, 0.3);
+  transition: all 0.1s ease-in-out;
+  transform: scale(1);
+  
+}
+
+.writing-form p:hover {
+  background-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* CARD WRAPPER */
+.reviews-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  margin-top: -120px;
+}
+
+/* CARD */
+.customer-review-card {
+  background: var(--card-background);
+  border-radius: 16px;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  transition: 0.25s ease;
+  min-height: 300px;
+}
+
+.review-meta,
+.meta-item,
+.stars {
+    background-color: transparent !important;
+}
+
+.bi-person,
+.bi-calendar4,
+.bi-star-fill {
+  background: transparent !important;
+}
+
+.stars {
+  gap: 10px;
+  font-size: 20px;
+  color: var(--accent);
+  letter-spacing: 5px;
+  transform: translateY(-15px);
+}
+
+
+/* DESKTOP LAYOUT */
+@media (min-width: 1025px) {
+  
+  .customer-review-card {
+    display: grid;
+    grid-template-columns: 300px 1fr auto; /* image | content | stars */
+    align-items: start;
+    padding: 20px;
+  }
+
+  .customer-review.title h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+    color: var(--foreground);
+    text-align: left;
+    margin-top: 100px;
+    transform: translateX(-30px);
+  }
+
+  .customer-review-card img {
+    width: 300px;
+    height: auto;
+    border-radius: 12px;
+    margin-top: 85px;
+    margin-left: 10px;
+  }
+
+  .review-content {
+    padding-right: 20px;
+    margin-left: -305px;
+  }
+
+  .meta-item {
+    height: 15px;
+    margin-left: -3px;
+    transform: translateY(10px);
+    font-size: 18px;
+  }
+
+  .bi-person,
+  .bi-calendar4 {
+    font-size: 20px;  
+    width: 20px;      
+    height: 20px;
+    line-height: 22px;
+  }
+
+  .stars {
+    align-self: start;
+    justify-self: end;
+    font-size: 20px;
+    transform: translateY(-3px);
+  }
+}
+
+.customer-review-card:hover {
+  transform: translateY(-4px);
+}
+
+/* IMAGE */
+.customer-review-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* TITLE */
+.review-content h3 {
+  font-size: 20px;
+  color: var(--foreground);
+  margin: 0;
+  font-weight: 600;
+}
+
+/* META */
+.review-meta {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  font-size: 14px;
+  color: var(--muted-foreground);
+  transform: translateY(5px);
+}
+
+/* Popup review form */
+.review-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+/* When visible */
+.review-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Slide-up animation for the modal */
+.review-modal {
+  transform: translateY(50px);
+  opacity: 0;
+  transition: all 0.35s ease;
+}
+
+/* When overlay is active => modal slides up */
+.review-overlay.show .review-modal {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* MOBILE (TABLET) */
+@media (max-width: 768px) {
+
+  /* Review cards */
+  .customer-review {
+    padding: 20px;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-top: 40px;
+  }
+
+  .customer-review.title h2 {
+    font-size: 22px;
+    margin-top: 40px;
+    transform: translateY(45px);
+    margin-left: -20px;
+  }
+
+  .customer-review.title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    margin-top: 5px;
+  }
+
+  .customer-review-card {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    gap: 14px;
+    width: 100%;
+    min-height: auto;
+  }
+
+  .customer-review-card img {
+    width: 400px;
+    height: auto;
+    margin: 0;
+    transform: translateX(-16px);
+    margin-top: -16px;
+  }
+
+  .reviews-container {
+    margin-top: -30px;
+  }
+
+  .review-content h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+
+  .review-meta {
+    display: flex;   
+    flex-direction: row;
+    align-items: stretch;
+    margin: 0;
+    font-size: 14px;
+    transform: translateY(10px);
+  }
+
+  .meta-item {
+    gap: 8px;
+  }
+
+  .stars {
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    letter-spacing: 5px;
+    transform: translateY(2px);
+  }
+}
+
+.writing-form {
+    position: absolute;
+    top: 40;
+    right: 0;
+}

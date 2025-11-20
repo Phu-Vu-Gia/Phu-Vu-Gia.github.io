@@ -1,0 +1,157 @@
+<!-- MAIN FORUM CONTENT -->
+<div class="forum-content pt-5">
+  <div class="container">
+    <!-- FORUM HEADER -->
+    <div class="forum-header">
+      <div
+        class="d-flex flex-md-row flex-column justify-content-md-between align-items-md-start justify-content-center gap-md-0 gap-3 w-100"
+      >
+        <div>
+          <h1 class="text-gradient mb-1">Discussion Forum</h1>
+          <p class="text-muted mb-0">Connect with gamers worldwide</p>
+        </div>
+        <button
+          id="createThreadBtn"
+          data-bs-toggle="modal"
+          data-bs-target="#createModal"
+        >
+          Create Thread
+        </button>
+      </div>
+    </div>
+
+    <!-- SEARCH + SORT -->
+    <div class="search-sort-container">
+      <div class="d-flex gap-3 align-items-stretch">
+        <div class="search-wrapper">
+          <i class="bi bi-search search-icon-forum"></i>
+          <input
+            type="text"
+            id="searchBar"
+            class="search-input"
+            placeholder="Search threads..."
+          />
+        </div>
+        <select id="sortSelect" class="sort-select">
+          <option>Newest First</option>
+          <option>Oldest First</option>
+          <option>Most Popular</option>
+          <option>Most Liked</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- THREAD LIST -->
+    <div id="threadList">
+      <% if (threads && threads.length> 0) { %> <% threads.forEach(t=> { %>
+      <div class="thread-card">
+        <div class="thread-header">
+          <img
+            src="https://i.pravatar.cc/52?u=<%= encodeURIComponent(t.author) %>"
+            class="thread-avatar"
+            alt="Avatar"
+          />
+          <h3 class="thread-title"><%= t.title %></h3>
+        </div>
+        <div class="thread-content">
+          <%= t.content.length> 200 ? t.content.substring(0,200)+'...' :
+          t.content %>
+        </div>
+        <div class="thread-footer">
+          <div class="thread-actions">
+            <button
+              class="btn-icon like-btn <%= t.liked ? 'liked' : '' %>"
+              title="Like"
+              data-id="<%= t.id %>"
+            >
+              <i
+                class="bi <%= t.liked ? 'bi-hand-thumbs-up-fill' : 'bi-hand-thumbs-up' %>"
+              ></i>
+              <span class="like-count"> <%= t.likes %> </span>
+            </button>
+          </div>
+          <div class="thread-meta">
+            <span class="author">By <%= t.author %></span>
+            <span class="replies clickable" data-thread-id="<%= t.id %>">
+              <%= t.replies %> <%= t.replies===1 ? 'Reply' : 'Replies' %>
+            </span>
+          </div>
+        </div>
+      </div>
+      <% }) %> <% } else { %>
+      <p class="text-center text-muted py-5">No threads yet. Be the first!</p>
+      <% } %>
+    </div>
+  </div>
+</div>
+
+<!-- CREATE THREAD MODAL -->
+<div class="modal fade" id="createModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <form class="modal-content" action="/forum/create" method="POST">
+      <div class="modal-header">
+        <h5 class="modal-title">Create New Thread</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+        ></button>
+      </div>
+      <div class="modal-body new-thread-container">
+        <input
+          name="title"
+          class="form-control mb-3"
+          placeholder="Title"
+          required
+        />
+        <input
+          name="author"
+          class="form-control mb-3"
+          placeholder="Your Name"
+          required
+        />
+        <textarea
+          name="content"
+          class="form-control"
+          rows="5"
+          placeholder="Write your post..."
+          required
+        ></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Post Thread</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- REPLIES MODAL -->
+<div id="repliesOverlay" class="replies-overlay" style="display: none">
+  <div class="replies-modal">
+    <div class="modal-header">
+      <button id="closeModal" class="btn-close-white">X</button>
+    </div>
+    <div class="modal-body">
+      <div id="modalThread" class="thread-full mb-5">
+        <div class="d-flex align-items-start gap-3">
+          <img id="modalAvatar" src="" class="thread-avatar" alt="Avatar" />
+          <div class="flex-grow-1">
+            <h3 id="modalTitle" class="h4 mb-1"></h3>
+            <p id="modalAuthor" class="text-muted small mb-2"></p>
+            <p id="modalContent" class="mb-0"></p>
+          </div>
+        </div>
+      </div>
+      <div id="repliesList" class="replies-list"></div>
+      <div class="reply-box mt-5">
+        <textarea
+          id="replyInput"
+          class="form-control"
+          rows="3"
+          placeholder="Write a reply..."
+        ></textarea>
+        <button id="postReply" class="btn btn-cyan mt-2">Post Reply</button>
+      </div>
+    </div>
+  </div>
+</div>

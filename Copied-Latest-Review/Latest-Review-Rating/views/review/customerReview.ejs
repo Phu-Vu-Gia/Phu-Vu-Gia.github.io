@@ -1,0 +1,74 @@
+<!-- The main of the page -->
+<div class="customer-review">
+    <div class="customer-review title">
+        <h2>Customer Reviews</h2>
+        <div class="writing-form">
+            <p id="openReviewButton">Write Review</p>
+        </div>
+    </div>
+
+    <!-- Main contents -->
+    <div class="reviews-container"></div>
+
+</div>
+
+
+<!-- Popup overlay for Write Review form (hidden by default) -->
+<div id="reviewOverlay" class="review-overlay">
+    <div class="review-form">
+        <div class="review-modal">
+
+            <!-- Title and subtitle of user's review -->
+            <header class="review-header">
+                <div class="header-text">
+                    <h2>Write a Review</h2>
+                    <p>Share your experience with this product</p>
+                </div>
+                <button class="close-btn" aria-label="Close dialog">×</button>
+            </header>
+
+            <!-- Horizontal divider -->
+            <hr class="divider" />
+
+            <!-- Input fields for users -->
+            <main class="review-main">
+                <label for="review-brief-title">Review Title</label>
+                <input type="text" id="review-brief-title" placeholder="Summarize your experience..." />
+
+                <label for="review-rating">Rating</label>
+                <div class="rating-select" id="ratingSelect">
+                    <div class="rating-select-trigger">
+                        <span id="ratingText">★★★★★</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </div>
+
+                    <ul class="rating-select-menu">
+                        <li data-value="5">★★★★★</li>
+                        <li data-value="4">★★★★☆</li>
+                        <li data-value="3">★★★☆☆</li>
+                        <li data-value="2">★★☆☆☆</li>
+                        <li data-value="1">★☆☆☆☆</li>
+                    </ul>
+
+                    <input type="hidden" id="review-rating" value="5">
+                </div>
+
+                <label for="review-description">Your Review</label>
+                <textarea id="review-description" placeholder="Tell us more about your experience..."></textarea>
+
+                <label for="review-image">Image (Optional)</label>
+                <input type="file" id="review-image" />
+            </main>
+
+            <!-- Horizontal divider -->
+            <hr class="divider" />
+
+            <!-- Buttons for closing or submitting the form -->
+            <footer class="review-footer">
+                <button class="btn btn-close">Close</button>
+                <button class="btn btn-submit">Submit Review</button>
+            </footer>
+
+        </div>
+    </div>
+</div>

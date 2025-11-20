@@ -1,0 +1,121 @@
+<div class="container min-vh-100 d-flex align-items-center justify-content-center py-5 my-5">
+  <!-- Full Card -->
+  <div class="card user-card row g-0 flex-column flex-lg-row align-items-stretch">
+    <!-- User Panel: Left Side -->
+    <aside class="user-panel col-lg-3 d-flex flex-column align-items-center text-center">
+      <div class="w-100 d-flex flex-column align-items-center">
+        <img src="/img/charles.jpg" alt="User avatar" class="user-avatar mt-4" />
+        <h1 class="card-title">Welcome, Charles</h1>
+      </div>
+      <nav class="nav flex-column w-100 gap-2 mt-4 flex-grow-1">
+        <a class="nav-link active" href="/my-profile">
+          <i class="bi bi-person"></i>
+          My Profile
+        </a>
+        <a class="nav-link" href="/my-games">
+          <i class="bi bi-folder-fill"></i>
+          My Games
+        </a>
+        <a class="nav-link" href="/security-settings">
+          <i class="bi bi-shield-lock-fill"></i>
+          Security
+        </a>
+      </nav>
+      <a class="text-decoration-none logout-link mt-4" href="/">
+        <i class="bi bi-box-arrow-right"></i>
+        Log out
+      </a>
+    </aside>
+    <!-- Profile Content: Right Side -->
+    <section class="col-lg-9 panel-info h-100">
+      <div class="card-body">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+          <div class="d-flex align-items-center gap-3">
+            <img src="/img/charles.jpg" alt="User avatar" class="user-avatar" />
+            <div>
+              <h3 class="fw-bold mb-0">Charlesphan</h3>
+              <p class="text-white-50 mb-0">charlesphan@example.com</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="row g-3 mt-4 profile-form">
+          <!-- Full Name -->
+          <div class="col-12 col-md-6">
+            <label for="fullName" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="fullName" placeholder="Your full name..." />
+          </div>
+          <!-- Nickname -->
+          <div class="col-12 col-md-6">
+            <label for="nickname" class="form-label">Nickname</label>
+            <input type="text" class="form-control" id="nickname" placeholder="Your nickname..." />
+          </div>
+
+          <!-- Gender -->
+          <div class="col-12 col-md-6">
+            <label for="gender" class="form-label">Gender</label>
+            <select class="form-select" id="gender">
+              <option selected disabled>Choose your gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Prefer not to say</option>
+            </select>
+          </div>
+
+          <!-- Phone Number -->
+          <div class="col-12 col-md-6">
+            <label for="phoneNumber" class="form-label">Phone Number</label>
+            <input type="text" class="form-control" id="phoneNumber" placeholder="Your phone number..." />
+          </div>
+
+          <!-- Country -->
+          <div class="col-12 col-md-6">
+            <label for="country" class="form-label">Country</label>
+            <select class="form-select" id="country">
+              <option selected disabled>Choose your country</option>
+              <option value="vn">Vietnam</option>
+              <option value="cn">China</option>
+              <option value="us">USA</option>
+            </select>
+          </div>
+
+          <!-- Language -->
+          <div class="col-12 col-md-6">
+            <label for="language" class="form-label">Language</label>
+            <select class="form-select" id="language">
+              <option selected disabled>Choose your language</option>
+              <option value="vi">Vietnamese</option>
+              <option value="zh">Chinese</option>
+              <option value="en">English</option>
+            </select>
+          </div>
+        </form>
+
+        <p class="mt-5 mb-2 fw-semibold">My email address</p>
+        <div class="email-list d-flex flex-column gap-3">
+          <div class="email-card-edit">
+            <div class="d-flex align-items-center gap-3">
+              <i class="bi bi-envelope-fill fs-4"></i>
+              <div class="email-meta d-flex flex-column">
+                <span>charlesphan@gmail.com</span>
+                <small>1 month ago</small>
+              </div>
+            </div>
+            <button class="btn btn-icon">
+              <i class="bi bi-trash-fill trashIcon"></i>
+            </button>
+          </div>
+          <div class="email-card-add text-center">
+            <i class="bi bi-envelope-plus fs-4"></i>
+            <span>Add Email Address</span>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end gap-3 mt-5">
+          <a href="/my-profile" class="text-decoration-none rounded-3 px-3 py-2 discard-btn">Discard</a>
+          <a href="/my-profile" class="text-decoration-none rounded-3 px-3 py-2 save-btn">Save</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

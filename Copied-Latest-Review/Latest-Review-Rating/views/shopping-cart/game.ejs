@@ -1,0 +1,145 @@
+<div class="container-fluid game-background mt-2 pt-4 pb-5">
+    <div class="container">
+        <a href="/shop" class="back-to-shop d-flex flex-row align-items-center justify-content-start text-center gap-2 text-decoration-none p-3 py-2 mb-3">
+            <span><i class="bi bi-arrow-left-short"></i></span>
+            Back to Shop
+        </a>
+
+        <div class="row g-5">
+            <div class="col-md-8">
+                <div class="row d-flex flex-column">
+                    <div class="col-md">
+                        <img src="/img/image_1.jpeg" class="customize-game-img img-fluid d-block w-100" alt="Item 1">
+                    </div>
+
+                    <div class="col-md mt-3 d-flex flex-column justify-content-center align-items-stretch gap-2">
+                        <span class="game-name fw-bold">Cyberpunk 2077</span>
+
+                        <span class="muted">An open-world, action-adventure story set in Night City, a megalopolis obsessed with power, glamour and body modification.</span>
+
+                        <div class="game-information-background p-md-4 p-3 pt-md-3 pt-2 mt-4">
+                            <span class="product-information fw-bold">Product Information</span>
+
+                            <div class="d-flex flex-column align-items-stretch justify-content-center mt-3 gap-2">
+                                <div class="d-flex flex-row align-items-center justify-content-between">
+                                    <span class="muted">Category:</span>
+                                    <span class="game-category d-flex flex-row align-items-center justify-content-end gap-3">
+                                        <a href="#" class="game-category-list text-decoration-none py-1 px-2 text-center">RPG</a>
+                                    </span>
+                                </div>
+
+                                <div class="d-flex flex-row align-items-center justify-content-between">
+                                    <span class="muted">Stock:</span>
+                                    <span class="game-stock">75 units</span>
+                                </div>
+
+                                <div class="d-flex flex-row align-items-center justify-content-between">
+                                    <span class="muted">Price:</span>
+                                    <span class="game-price-info fw-bold">$49.99</span>
+                                </div>
+
+                                <div class="d-flex flex-row align-items-md-center
+                                align-items-start justify-content-between">
+                                    <span class="muted">Rating</span>
+
+                                    <span class="muted d-flex flex-md-row flex-column align-items-md-center justify-content-md-start align-items-end justify-content-center gap-md-3 gap-1">
+                                        <div class="d-flex flex-row align-items-center justify-content-center gap-md-3 gap-2">
+                                            <span class="star-collections">
+                                                <span><i class="bi bi-star-fill star-color"></i></span>
+                                                <span><i class="bi bi-star-fill star-color"></i></span>
+                                                <span><i class="bi bi-star-fill star-color"></i></span>
+                                                <span><i class="bi bi-star-fill star-color"></i></span>
+                                                <span><i class="bi bi-star"></i></span>
+                                            </span>
+
+                                            <span class="muted ratings-gamevault">(4.8)</span>
+                                        </div>
+
+                                        <span class="game-reviews fw-bold py-1 px-2 text-center">
+                                            <span><i class="bi bi-people"></i></span>
+                                            2847 reviews
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 d-flex flex-column gap-4">
+                <div class="customize-your-order-background p-md-4 p-3 pt-md-3 pt-2">
+                    <span class="customize-your-order-title fw-bold">Customize Your Order</span>
+
+                    <form class="d-flex flex-column gap-3 mt-4">
+                        <div>
+                            <label for="edition" class="form-label fw-bold mb-1">Edition</label>
+
+                            <div class="dropdown">
+                                <button class="dropdown-toggle w-100 text-start customize-edition-options outline-0 p-2 ps-3" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="editionDropdown">
+                                    <span id="selectedEdition">Standard</span>
+                                </button>
+
+                                <ul class="dropdown-menu w-100 border-0 outline-0 rounded-3 m-0 p-1 mt-1 position-absolute" aria-labelledby="editionDropdown">
+                                    <li>
+                                        <a class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden" href="/standard"  data-value="Standard">
+                                            <span class="checkmark"><i class="bi bi-check2"></i></span>
+                                            Standard
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden" href="/deluxe" data-value="Deluxe">
+                                            <span class="checkmark"><i class="bi bi-check2"></i></span>
+                                            Deluxe
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item p-1 d-flex align-items-center gap-2 rounded-3 overflow-hidden" href="/ultimate" data-value="Ultimate">
+                                            <span class="checkmark"><i class="bi bi-check2"></i></span>
+                                            Ultimate
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="quantity-input-container">
+                            <label for="quantity" class="form-label fw-bold mb-1">Quantity</label>
+                            <input type="number" class="form-control border-0 outline-0 mt-0 p-2 ps-3" name="quantity" id="quantity" min="1" value="1">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="add-to-cart-background d-flex flex-column align-items-stretch justify-content-between gap-1 p-md-4 p-3 pt-md-3 pt-2 sticky-top">
+                    <span class="game-price fw-bold">$49.99</span>
+
+                    <a href="/shop/game/123" class="text-decoration-none game-add-to-cart p-3 text-center d-flex flex-row align-items-center justify-content-center gap-3 mt-2 mb-3">
+                        <span><i class="bi bi-cart"></i></span>
+                        Add to Cart
+                    </a>
+
+                    <hr class="text-secondary my-3 w-100">
+
+                    <div class="additional-details">
+                        <div class="d-flex flex-row align-items-center justify-content-between">
+                            <span class="muted">Developer</span>
+                            <span class="game-developer">CD Projekt Red</span>
+                        </div>
+
+                        <div class="d-flex flex-row align-items-center justify-content-between">
+                            <span class="muted">Publisher</span>
+                            <span class="game-publisher">CD Projekt</span>
+                        </div>
+
+                        <div class="d-flex flex-row align-items-center justify-content-between">
+                            <span class="muted">Release Date</span>
+                            <span class="game-release-date">12/10/2020</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>

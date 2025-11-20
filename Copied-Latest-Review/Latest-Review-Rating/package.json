@@ -1,0 +1,30 @@
+{
+  "name": "group-project-wps-2025c-openai-inspired",
+  "version": "1.0.0",
+  "description": "[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/sn4HlWYG)",
+  "homepage": "https://github.com/RMIT-Vietnam-Teaching/group-project-wps-2025c-openai-inspired#readme",
+  "bugs": {
+    "url": "https://github.com/RMIT-Vietnam-Teaching/group-project-wps-2025c-openai-inspired/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RMIT-Vietnam-Teaching/group-project-wps-2025c-openai-inspired.git"
+  },
+  "license": "ISC",
+  "author": "Open AI-Inspired",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devStart": "nodemon server.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-ejs-layouts": "^2.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}

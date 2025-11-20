@@ -1,0 +1,106 @@
+<!-- Main Container: Full viewport height, centered content -->
+<div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center">
+  <!-- Login Card: The whole box with logo -->
+  <div class="card login-card">
+    <span class="text-center mt-3">
+      <i class="bi bi-controller controller"></i>
+    </span>
+
+    <div class="card-body mt-0 py-0">
+      <!-- Header Section: Title and subtitle -->
+      <div class="text-center mb-4 py-0">
+        <h1 class="card-title mb-2 mt-0 text-white">
+          Welcome to GameVault
+        </h1>
+        <p class="card-subtitle text-white">
+          Sign in or create an account for better experience
+        </p>
+      </div>
+
+      <!-- Tab Navigation: Sign In / Sign Up switcher -->
+      <ul class="nav nav-customize nav-fill mb-4" id="authTabs" role="tablist">
+        <!-- Sign In button -->
+        <li class="nav-item py-0" role="presentation">
+          <a class="nav-link active" href="/signin"> Sign In </a>
+        </li>
+        <!-- Sign Up button -->
+        <li class="nav-item py-0" role="presentation">
+          <a class="nav-link nav-link-customize" href="/signup">
+            Sign Up
+          </a>
+        </li>
+      </ul>
+
+      <!-- Tab Content: Forms -->
+      <div class="tab-content" id="authTabsContent">
+        <!-- Sign In Form -->
+        <div class="tab-pane fade show active" id="signin" role="tabpanel">
+          <form>
+            <!-- Email Input -->
+            <div class="mb-3">
+              <label for="signinEmail" class="form-label">Email</label>
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="bi bi-envelope"></i>
+                </span>
+                <input type="email" class="form-control" id="signinEmail" placeholder="Your email" required />
+              </div>
+            </div>
+
+            <!-- Password Input -->
+            <div class="mb-2">
+              <label for="signinPassword" class="form-label">Password</label>
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="bi bi-lock"></i>
+                </span>
+                <input type="password" class="form-control" id="signinPassword" placeholder="Your password" required />
+                <!-- Hide/Unhide Password Button -->
+                <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                  <i class="bi bi-eye" id="toggleIcon"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Forgot Password Link -->
+            <div class="text-end mb-3">
+              <a href="/retrieval-check" class="text-decoration-none small">Forgot password?
+              </a>
+            </div>
+
+            <!-- Submit Button -->
+            <a href="/" class="btn btn-primary mb-3 w-100"> <!--FIX ME: REDIRECT TO HOMEPAGE AFTER MERGING-->
+              Sign In
+            </a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  // Toggle password visibility
+  const togglePassword = document.getElementById("togglePassword");
+  const passwordInput = document.getElementById("signinPassword");
+  const toggleIcon = document.getElementById("toggleIcon");
+
+  togglePassword.addEventListener("click", function () {
+    // Toggle the input type between 'password' and 'text'
+    const type =
+      passwordInput.getAttribute("type") === "password"
+        ? "text"
+        : "password";
+    passwordInput.setAttribute("type", type);
+
+    // Toggle the icon between eye and eye-slash
+    if (type === "text") {
+      toggleIcon.classList.remove("bi-eye");
+      toggleIcon.classList.add("bi-eye-slash");
+    } else {
+      toggleIcon.classList.remove("bi-eye-slash");
+      toggleIcon.classList.add("bi-eye");
+    }
+  });
+</script>

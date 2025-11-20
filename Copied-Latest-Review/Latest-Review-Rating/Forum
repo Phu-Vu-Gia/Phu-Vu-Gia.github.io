@@ -1,0 +1,61 @@
+const threads = [
+  {
+    title: "Is Elden Ring Still Worth Playing in 2025?",
+    author: "GamerLynx",
+    date: "2025-10-30",
+    replies: 2,
+    content: "After two years of updates, Elden Ring is still going strong with new DLCs and balancing patches..."
+  },
+  {
+    title: "First Thread",
+    author: "RainCanabisZZ",
+    date: "2025-10-31",
+    replies: 0,
+    content: "Hello World Description"
+  }
+];
+
+const threadList = document.getElementById("threadList");
+const searchBar = document.getElementById("searchBar");
+const sortSelect = document.getElementById("sortSelect");
+
+function renderThreads(data) {
+  threadList.innerHTML = "";
+  data.forEach(t => {
+    threadList.innerHTML += `
+      <div class="thread-card">
+        <h4>${t.title}</h4>
+        <p>${t.content}</p>
+        <div class="thread-meta d-flex gap-3">
+          <span><b>${t.author}</b></span>
+          <span>📅 ${t.date}</span>
+          <span>💬 ${t.replies} replies</span>
+        </div>
+      </div>
+    `;
+  });
+}
+
+function applySort() {
+  let sorted = [...threads];
+  if (sortSelect.value === "Newest First")
+    sorted.sort((a,b) => new Date(b.date) - new Date(a.date));
+  if (sortSelect.value === "Oldest First")
+    sorted.sort((a,b) => new Date(a.date) - new Date(b.date));
+  if (sortSelect.value === "Most Popular")
+    sorted.sort((a,b) => b.replies - a.replies);
+  renderThreads(sorted);
+}
+
+function applySearch() {
+  const q = searchBar.value.toLowerCase();
+  const filtered = threads.filter(t =>
+    t.title.toLowerCase().includes(q) ||
+    t.content.toLowerCase().includes(q)
+  );
+  renderThreads(filtered);
+}
+
+sortSelect.addEventListener("change", applySort);
+searchBar.addEventListener("input", applySearch);
+renderThreads(threads);
