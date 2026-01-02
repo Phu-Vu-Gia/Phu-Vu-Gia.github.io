@@ -1,4 +1,4 @@
-// Seed data for the meal plans
+  // Seed data for the meal plans
 const plans = [
   {
     name: 'Daily Meal Plan #1',
