@@ -10,6 +10,9 @@ const app = express();
 // Serve Static Files
 app.use(express.static("public"));
 
+// Parse form data
+app.use(express.urlencoded({ extended: false }));
+
 // View Templating
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "view", "partials"));
@@ -20,8 +23,21 @@ const Plan = require('./db/planModel');
 // Home endpoint
 app.get('/', async (req, res) => {
   try {
-    const plans = await Plan.findOne();
-    res.render('index', { meals: plans ? plans.meals : [] });
+    const plans = await Plan.find();
+    const randomPlan = plans.length > 0 ? plans[Math.floor(Math.random() * plans.length)] : null;
+    res.render('index', { meals: randomPlan ? randomPlan.meals : [] });
+  } catch (err) {
+    console.error('Error fetching plans:', err);
+    res.render('index', { meals: [] });
+  }
+});
+
+// POST endpoint - Refresh to get a random meal plan
+app.post('/', async (req, res) => {
+  try {
+    const plans = await Plan.find();
+    const randomPlan = plans.length > 0 ? plans[Math.floor(Math.random() * plans.length)] : null;
+    res.render('index', { meals: randomPlan ? randomPlan.meals : [] });
   } catch (err) {
     console.error('Error fetching plans:', err);
     res.render('index', { meals: [] });
