@@ -53,45 +53,21 @@
 
         <!-- Your meal list here -->
         <div id="meal-list">
+          <% meals.forEach(meal => { %>
           <div>
-            <a href="/meal/#">
-              <img src="https://picsum.photos/id/63/200/300" height="300">
+            <a href="/meal/<%= meal.name %>">
+              <img src="<%= meal.imageUrl %>" height="300">
               <section>
                 <h3>
-                  Meal Name
+                  <%= meal.name %>
                 </h3>
                 <span>
-                  Time of Day - Meal Type
+                  <%= meal.timeOfDay %> - <%= meal.mealType %>
                 </span>
               </section>
             </a>
           </div>
-          <div>
-            <a href="/meal/#">
-              <img src="https://picsum.photos/id/63/200/300" height="150">
-              <section>
-                <h3>
-                  Meal Name
-                </h3>
-                <span>
-                  Time of Day - Meal Type
-                </span>
-              </section>
-            </a>
-          </div>
-          <div>
-            <a href="/meal/#">
-              <img src="https://picsum.photos/id/63/200/300" height="150">
-              <section>
-                <h3>
-                  Meal Name
-                </h3>
-                <span>
-                  Time of Day - Meal Type
-                </span>
-              </section>
-            </a>
-          </div>
+          <% }); %>
         </div>
       </section>
     </main>

@@ -14,14 +14,31 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "view", "partials"));
 
+// Import Plan model
+const Plan = require('./db/planModel');
+
 // Home endpoint
-app.get('/', function (req, res) {
-  res.render('index');
+app.get('/', async (req, res) => {
+  try {
+    const plans = await Plan.findOne();
+    res.render('index', { meals: plans ? plans.meals : [] });
+  } catch (err) {
+    console.error('Error fetching plans:', err);
+    res.render('index', { meals: [] });
+  }
 });
 
 // Meal endpoint
-app.get('/meal/:name', function (req, res) {
-  res.render('meal');
+app.get('/meal/:name', async (req, res) => {
+  try {
+    const mealName = req.params.name;
+    const plan = await Plan.findOne({ 'meals.name': mealName });
+    const meal = plan ? plan.meals.find(m => m.name === mealName) : null;
+    res.render('meal', { meal });
+  } catch (err) {
+    console.error('Error fetching meal:', err);
+    res.render('meal', { meal: null });
+  }
 });
 
 // Start the server

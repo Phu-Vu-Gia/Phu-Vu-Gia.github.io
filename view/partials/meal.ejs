@@ -30,20 +30,26 @@
 
     <!-- Main content -->
     <main>
+      <% if (meal) { %>
       <div>
-        <img src="https://picsum.photos/id/63/200/300" height="450">
+        <img src="<%= meal.imageUrl %>" height="450">
         <section>
           <h1>
-            Meal Name
+            <%= meal.name %>
           </h1>
           <span>
-            Time of Day - Meal Type
+            <%= meal.timeOfDay %> - <%= meal.mealType %>
           </span>
         </section>
       </div>
+      <% } else { %>
+      <div>
+        <h1>Meal not found</h1>
+      </div>
+      <% } %>
 
       <!-- Back button here -->
-      <input type="button" id="btn-back">Back</input>
+      <button id="btn-back" onclick="window.history.back()">Back</button>
     </main>
 
     <footer>
