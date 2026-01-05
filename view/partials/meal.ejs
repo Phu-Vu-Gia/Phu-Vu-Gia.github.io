@@ -19,11 +19,11 @@
 </head>
 
 <body>
-  <div>
+  <div class="container flex-grow-1">
     <!-- Your header here -->
-    <header>
+    <header class="d-flex align-items-center py-3">
       <img src="/images/b.png" alt="Logo" width="64" height="64">
-      <nav>
+      <nav class="breadcrumbs">
         <a href="/">Home Page</a>
         <div class="arrow">→</div>
         <% if (meal) { %>
@@ -33,11 +33,11 @@
     </header>
 
     <!-- Main content -->
-    <main>
+    <main class="my-4">
       <% if (meal) { %>
       <div>
-        <img src="<%= meal.imageUrl %>" height="450">
-        <section>
+        <img src="<%= meal.imageUrl %>" alt="<%= meal.name %>" height="450" class="meal-detail-img">
+        <section class="meal-detail-info">
           <h1>
             <%= meal.name %>
           </h1>
@@ -47,17 +47,19 @@
         </section>
       </div>
       <% } else { %>
-      <div>
+      <div class="text-center my-5">
         <h1>Meal not found</h1>
       </div>
       <% } %>
 
       <!-- Back button here -->
-      <button id="btn-back" onclick="window.history.back()">Back</button>
+      <div class="d-flex justify-content-center align-items-center mt-5">
+        <button id="btn-back" onclick="window.history.back()">Back</button>
+      </div>
     </main>
 
-    <footer>
-      Made with👌by <strong>Phu Vu Gia</strong>
+    <footer class="text-center py-4">
+      <p>Made with👌by <strong>Phu Vu Gia</strong></p>
     </footer>
   </div>
 
