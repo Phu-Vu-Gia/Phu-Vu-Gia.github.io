@@ -9,10 +9,6 @@ body {
     font-family: sans-serif;
 }
 
-a {
-    text-decoration: none;
-}
-
 /* Header links */
 @media (min-width: 992px) {
     header {
@@ -21,12 +17,12 @@ a {
 
     header a {
         color: #0d6efd; /* Bootstrap primary blue */
-        font-weight: bold;
+        text-decoration: none;
     }
 
     /* Profile Sidebar (index.ejs) */
     #profile {
-        background-color: #0d6efd;
+        background-color: darkblue;
         color: white;
         padding: 40px;
         /* Ensure it fills height on desktop */
@@ -35,26 +31,37 @@ a {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
+        border-radius: 12px;
     }
 
     #profile img {
-        width: 150px;
-        height: 150px;
+        width: 250px;
+        height: 250px;
         border-radius: 50%;
         object-fit: cover;
-        margin-bottom: 30px;
+        margin-bottom: 10px;
         background-color: white; /* Placeholder background */
+        position: relative;
+        left: 80px;
+        bottom: 20px;
     }
 
     #profile h1 {
         font-weight: bold;
-        font-size: 2.5rem;
+        font-size: 4.5rem;
     }
 
     #profile h2 {
         font-size: 1.1rem;
         font-weight: normal;
         margin-top: 10px;
+    }
+
+    #profile span,
+    #profile h1,
+    #profile h2 {
+        position: relative;
+        right: 20px;
     }
 
     /* Meal Plan Section (index.ejs) */
@@ -70,37 +77,56 @@ a {
     }
 
     /* Custom Button Style */
-    .btn-custom {
+    #btn-custom {
+        width: 180px;
+        height: 35px;
         background-color: #0d6efd;
         color: white;
+        border-radius: 6px;
         border: none;
-        padding: 10px 25px;
-        border-radius: 5px;
-        font-weight: bold;
+        outline: none;
         transition: background-color 0.2s;
     }
 
-    .btn-custom:hover {
+    #btn-custom:hover {
         background-color: #0b5ed7; /* Darker blue on hover */
         color: white;
+    }
+
+    #btn-back {
+        width: 180px;
+        height: 35px;
+        background-color: #0d6efd;
+        color: white;
+        border-radius: 6px;
+        border: none;
+        outline: none;
+        transition: background-color 0.2s;
+    }
+
+    #btn-back:hover {
+        background-color: #0b5ed7;
     }
 
     /* Meal List Grid Layout (index.ejs) */
     #meal-list {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 30px;
-        width: 100%;
+        gap: 20px;
     }
 
     /* The first meal item spans both columns */
-    #meal-list:first-child {
+    #meal-list > :first-child {
         grid-column: 1 / span 2;
     }
 
-    #meal-list:first-child img {
-        width: 500px;
-        height: 300px;
+    #meal-list > :first-child img {
+        width: 700px;
+    }
+
+    #meal-list > :not(:first-child) img {
+        height: 250px;
+        width: 340px;
     }
 
     /* Breadcrumbs (meal.ejs) */
@@ -112,19 +138,16 @@ a {
     .breadcrumbs .arrow {
         margin: 0 15px;
         color: #6c757d;
-        font-weight: bold;
     }
 
     .breadcrumbs span {
         color: #6c757d;
-        font-weight: bold;
     }
 
     /* Meal Detail Page (meal.ejs) */
     .meal-detail-img {
         width: 100%;
         max-height: 500px;
-        object-fit: cover;
         border-radius: 10px;
         margin-bottom: 30px;
     }
@@ -135,7 +158,6 @@ a {
     }
 
     .meal-detail-info span {
-        color: #6c757d;
         font-size: 1.1rem;
         font-weight: 500;
     }
@@ -154,6 +176,5 @@ a {
     footer {
         margin-top: auto;
         padding: 20px;
-        color: #6c757d;
     }
 }
