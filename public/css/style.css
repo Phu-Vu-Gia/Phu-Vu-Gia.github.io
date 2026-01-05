@@ -189,5 +189,117 @@ body {
 
 /* Mobile version */
 @media (max-width: 991px) {
+    header {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    header a {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+    }
+
+    #profile {
+        background-color: darkblue;
+        color: white;
+        /* Ensure it fills height on desktop */
+        min-height: 500px; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 16px;
+        width: 100%;
+    }
+
+    #profile img {
+        width: 100%;
+        max-width: 240px;
+        height: auto;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 auto 10px auto;
+        background-color: white;
+    }
+
+    #profile span,
+    #profile h1,
+    #profile h2 {
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+
+    #profile h1 {
+        font-size: 70px;
+    }
+
+    #profile h2 {
+        font-size: 20px;
+    }
+
+    #meal-plan h1 {
+        text-align: center;
+        width: 100%;
+        margin-bottom: 20px;
+        font-weight: 300;
+        font-weight: bold;
+    }
+
+    #btn-custom {
+        width: 180px;
+        height: 35px;
+        background-color: #0d6efd;
+        color: white;
+        border-radius: 6px;
+        border: none;
+        outline: none;
+        transition: background-color 0.2s;
+        margin: 20px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #btn-custom:hover {
+        background-color: #0b5ed7; /* Darker blue on hover */
+        color: white;
+    }
+
+    #meal-list > img {
+        width: 100%;
+        aspect-ratio: 16/9;
+    }
+
+    .breadcrumbs {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 15px;
+    }
+
+    .meal-detail-img img {
+        width: 100%;
+        min-height: 700px;
+    }
     
+    #btn-back {
+        width: 180px;
+        height: 35px;
+        background-color: #0d6efd;
+        color: white;
+        border-radius: 6px;
+        border: none;
+        outline: none;
+        transition: background-color 0.2s;
+    }
+
+    #btn-back:hover {
+        background-color: #0b5ed7;
+    }
 }
