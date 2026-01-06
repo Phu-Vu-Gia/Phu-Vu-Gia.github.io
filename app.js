@@ -11,10 +11,23 @@
 // Declare packages used for this server file
 const express = require('express');
 require('dotenv').config();
-
+require('./db/mongoose');
 
 // Setup server
 const app = express();
+
+// Serve static files
+app.use(express.static("public"));
+
+// Parse form data
+app.use(express.urlencoded({ extended: false }));
+
+// View Templating
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "view", "partials"));
+
+// Import Book model
+const Book = require('./db/bookModel');
 
 /** Routes */
 // Homepage endpoint that when accessed will produce a random reading list for a week
@@ -28,7 +41,7 @@ app.get('/book/:title', function (req, res) {
 });
 
 // Port number
-const port = 4000;
+const port = process.env.PORT;
 
 // Start the server
 app.listen(port, () => {
