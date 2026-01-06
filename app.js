@@ -12,6 +12,7 @@
 const express = require('express');
 require('dotenv').config();
 require('./db/mongoose');
+const path = require('path');
 
 // Setup server
 const app = express();
@@ -24,7 +25,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // View Templating
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "view", "partials"));
+app.set("views", path.join(__dirname, "views", "partials"));
 
 // Import Book model
 const Book = require('./db/bookModel');
