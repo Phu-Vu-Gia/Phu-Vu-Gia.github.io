@@ -7,12 +7,51 @@ const mongoose = require('./mongoose');
 const bookSchema = new mongoose.Schema({
     
     // Implement bookSchema
+    title: {
+        type: String,
+        required: true
+    },
+
+    author: {
+        type: String,
+        required: true
+    },
+
+    year: {
+        type: Number,
+        required: true
+    },
+
+    image: {
+        type: String,
+        required: true
+    },
+
+    category: {
+        type: String,
+        enum: ['TEXTBOOK', 'PHILOSOPHY', 'NOVEL'],
+        required: true
+    },
+
+    description: {
+        type: String,
+        required: true
+    }
 
 });
 
 const readingListSchema = new mongoose.Schema({
     
     // Implement readingListSchema
+    name: {
+        type: String,
+        required: true
+    },
+
+    books: {
+        type: [bookSchema],
+        required: true
+    }
     
 });
 
