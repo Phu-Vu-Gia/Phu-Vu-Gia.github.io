@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+@media (min-width: 992px) {
+    .book-card img {
+        width: 100%;
+        height: auto;
+    }
+
+    .list {
+        border: 2px solid lightgray;
+        border-radius: 10px;
+        height: auto;
+        width: auto;
+        padding: 1rem;
+        box-sizing: border-box;
+    }
+}

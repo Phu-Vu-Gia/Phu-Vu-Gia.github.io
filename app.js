@@ -3,8 +3,8 @@
 * Course: COSC3060 Web Programming Studio
 * Semester: 2025B
 * Assessment: Fullstack in-class Lab Test
-* Author: Your names (e.g. Nguyen Van Minh)
-* ID: Your student ids (e.g. s1234567)
+* Author: Vu Gia Phu
+* ID: s4132254
 * Acknowledgement: Acknowledge the resources that you use here.
 */
 
@@ -28,12 +28,58 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views", "partials"));
 
 // Import Book model
-const Book = require('./db/bookModel');
+const { Book } = require('./db/bookModel');
+const { get } = require('http');
 
 /** Routes */
 // Homepage endpoint that when accessed will produce a random reading list for a week
-app.get('/', function (req, res) {
-    res.render('list');
+app.get('/', async function (req, res) {
+    try {
+        const books = await Book.find({});
+        
+        // function to get one random book from a filtered list
+        const getRandomByCategory = (category) => {
+            const filtered = books.filter(book => book.category === category);
+            return filtered.length > 0 ? filtered[Math.floor(Math.random() * filtered.length)] : null;
+        }
+
+        // select one random book to display for each category
+        const displayedBooks = [
+            getRandomByCategory('TEXTBOOK'),
+            getRandomByCategory('PHILOSOPHY'),
+            getRandomByCategory('NOVEL')
+        ].filter(book => book !== null);
+
+        res.render('list', { books: displayedBooks });
+    } catch (err) {
+        console.error(err);
+        res.status(500).render('list', { books: [] });;
+    }
+}) 
+
+// POST endpoint - Refresh to get a random reading books
+app.post('/', async function (req, res) {
+    try {
+        const books = await Book.find({});
+        
+        // function to get one random book from a filtered list
+        const getRandomByCategory = (category) => {
+            const filtered = books.filter(book => book.category === category);
+            return filtered.length > 0 ? filtered[Math.floor(Math.random() * filtered.length)] : null;
+        }
+
+        // select one random book to display for each category
+        const displayedBooks = [
+            getRandomByCategory('TEXTBOOK'),
+            getRandomByCategory('PHILOSOPHY'),
+            getRandomByCategory('NOVEL')
+        ].filter(book => book !== null);
+
+        res.render('list', { books: displayedBooks });
+    } catch (err) {
+        console.error(err);
+        res.status(500).render('list', { books: [] });;
+    }
 })
 
 // Book endpoint that when accessed will show detail information about a book and related books found in the database

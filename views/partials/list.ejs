@@ -59,7 +59,44 @@
                 </form>
 
                 <div id="book-list">
-                    
+                    <h3>Monday-Wednesday</h3>
+                    <section class="list mon-to-wed">
+                        <% const textbook = books.find(book => book.category === 'TEXTBOOK'); %>
+                        <% if (textbook) { %>
+                            <div class="book-card">
+                                <img src="<%= textbook.image %>" alt="<%= textbook.title %>">
+                                <p><strong><%= textbook.title %> by <%= textbook.author %></strong></p>
+                                <p><%= textbook.description %></p>
+                                <p><%= textbook.category %></p>
+                            </div>
+                        <% } %>
+                    </section>
+
+                    <h3>Thursday-Friday</h3>
+                    <section class="list thu-to-fri">
+                        <% const philosophy = books.find(book => book.category === 'PHILOSOPHY'); %>
+                        <% if (philosophy) { %>
+                            <div class="book-card">
+                                <img src="<%= philosophy.image %>" alt="<%= philosophy.title %>">
+                                <p><strong><%= philosophy.title %> by <%= philosophy.author %></strong></p>
+                                <p><%= philosophy.description %></p>
+                                <p><%= philosophy.category %></p>
+                            </div>
+                        <% } %>
+                    </section>
+
+                    <h3>Saturday-Sunday</h3>
+                    <section class="list sat-to-sun">
+                        <% const novel = books.find(book => book.category === 'NOVEL'); %>
+                        <% if (novel) { %>
+                            <div class="book-card">
+                                <img src="<%= novel.image %>" alt="<%= novel.title %>">
+                                <p><strong><%= novel.title %> by <%= novel.author %></strong></p>
+                                <p><%= novel.description %></p>
+                                <p><%= novel.category %></p>
+                            </div>
+                        <% } %>
+                    </section>
                 </div>
 
             </section> 
