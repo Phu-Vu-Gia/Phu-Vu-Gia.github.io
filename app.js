@@ -29,7 +29,6 @@ app.set("views", path.join(__dirname, "views", "partials"));
 
 // Import Book model
 const { Book } = require('./db/bookModel');
-const { get } = require('http');
 
 /** Routes */
 // Homepage endpoint that when accessed will produce a random reading list for a week
@@ -83,8 +82,17 @@ app.post('/', async function (req, res) {
 })
 
 // Book endpoint that when accessed will show detail information about a book and related books found in the database
-app.get('/book/:title', function (req, res) {
-    res.render('book');
+app.get('/book/:title', async function (req, res) {
+    try {
+        const bookTitle = req.params.title;
+        const allBooks = await Book.find({});
+        const displayedBook = allBooks.find(b => b.title === bookTitle);
+        
+        res.render('book', { displayedBook, books: allBooks });
+    } catch (err) {
+        console.error(err);
+        res.render('book', { displayedBook: null, books: [] });
+    }
 });
 
 // Port number
