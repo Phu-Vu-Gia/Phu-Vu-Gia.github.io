@@ -23,89 +23,114 @@
     <div class="container mx-auto min-vh-100 d-flex flex-column">
 
 <!-- Header, the first section of the page-->
-        <header>
+        <header class="d-flex align-items-center py-3">
             <img src="https://www.torredevigilancia.com/wp-content/uploads/2021/09/star-wars-knights-of-the-old-republic-kotor-will-have-1140x641.jpg" alt="logo" width="64" height="64">
-            <nav>
+            <nav class="ms-3">
                 <a href="/">Home Page</a>
             </nav>
         </header>
 
         <!-- Main content -->
-        <main>
-            
-            <!-- Your profile-->
-            <aside id="profile">
-                <div>
-                    <img src="https://www.torredevigilancia.com/wp-content/uploads/2021/09/star-wars-knights-of-the-old-republic-kotor-will-have-1140x641.jpg" alt="" height="250" >
-                </div>
-                <div>
-                    <div class="mb-4">
-                        <span>Hi, I'm</span>
-                        <h1>Phu Vu Gia</h1>
+        <main class="container-fluid my-4 mx-auto flex-grow-1">
+
+            <div class="row g-5">
+
+                <!-- Your profile-->
+                <aside id="profile" class="col-lg-4 col-md-5 d-flex flex-column justify-content-lg-start align-items-lg-start justify content-center align-items-center text-white p-5 rounded-4 shadow">
+                    <div class="text-center mb-4">
+                        <img src="https://www.torredevigilancia.com/wp-content/uploads/2021/09/star-wars-knights-of-the-old-republic-kotor-will-have-1140x641.jpg" alt="Profile" class="rounded-circle d-flex align-items-center justify content-center border border-4 border-white object-fit-cover">
                     </div>
-                    <div>
-                        <h2>s4132254</h2>
-                        <h2>s4132254@rmit.edu.vn</h2>
+                    <div class="info">
+                        <div class="mb-4">
+                            <span class="fs-5">Hi, I'm</span>
+                            <h1>Phu Vu Gia</h1>
+                        </div>
+                        <div class="mt-4">
+                            <h2><i>s4132254</i></h2>
+                            <h2><i>s4132254@rmit.edu.vn</i></h2>
+                        </div>
                     </div>
-                </div>
-            </aside>
+                </aside>
+                
+                <!-- The reading list is shown here-->
+                <section id="reading-list" class="col-lg-7 d-flex flex-column justify-content-center align-items-center justify-content-lg-end align-items-lg-end">
+                    <h2>Recommended <b>READING LIST</b></h2>
+    
+                    <form action="/" method="post" class="align-self-center align-self-lg-end mb-4">
+                        <button id="btn-custom">Refresh</button>
+                    </form>
+    
+                    <div id="book-list" class="w-100">
+                        <h3 class="mt-4">Monday-Wednesday</h3>
+                        <section class="list mon-to-wed mb-4">
+                            <% const textbook = books.find(book => book.category === 'TEXTBOOK'); %>
+                            <% if (textbook) { %>
+                                <div class="book-card row g-0 overflow-hidden p-3">
+                                    <div class="col-lg-6 d-flex flex-column justify-content-center">
+                                        <a href="/book/<%= textbook.title %>">
+                                            <h5 class="text-primary"><strong><%= textbook.title %> by <%= textbook.author %></strong></h5>
+                                        </a>
+                                        <p><%= textbook.description %></p>
+                                        <p><%= textbook.category %></p>
+                                    </div>
+
+                                    <div class="col-lg-6 text-end">
+                                        <a href="/book/<%= textbook.title %>">
+                                            <img src="<%= textbook.image %>" alt="<%= textbook.title %>">
+                                        </a>
+                                    </div>
+                                </div>
+                            <% } %>
+                        </section>
+    
+                        <h3 class="mt-4">Thursday-Friday</h3>
+                        <section class="list thu-to-fri mb-4">
+                            <% const philosophy = books.find(book => book.category === 'PHILOSOPHY'); %>
+                            <% if (philosophy) { %>
+                                <div class="book-card row g-0 overflow-hidden p-3">
+                                    <div class="col-lg-6 d-flex flex-column justify-content-center">
+                                        <a href="/book/<%= philosophy.title %>">
+                                            <h5 class="text-primary"><strong><%= philosophy.title %> by <%= philosophy.author %></strong></h5>
+                                        </a>
+                                        <p><%= philosophy.description %></p>
+                                        <p><%= philosophy.category %></p>
+                                    </div>
+
+                                    <div class="col-lg-6 text-end">
+                                        <a href="/book/<%= philosophy.title %>">
+                                            <img src="<%= philosophy.image %>" alt="<%= philosophy.title %>">
+                                        </a>
+                                    </div>
+                                </div>
+                            <% } %>
+                        </section>
+    
+                        <h3 class="mt-4">Saturday-Sunday</h3>
+                        <section class="list sat-to-sun mb-4">
+                            <% const novel = books.find(book => book.category === 'NOVEL'); %>
+                            <% if (novel) { %>
+                                <div class="book-card row g-0 overflow-hidden p-3">
+                                    <div class="col-lg-6 d-flex flex-column justify-content-center">
+                                        <a href="/book/<%= novel.title %>">
+                                            <h5 class="text-primary"><strong><%= novel.title %> by <%= novel.author %></strong></h5>
+                                        </a>
+                                        <p><%= novel.description %></p>
+                                        <p><%= novel.category %></p>
+                                    </div>
+
+                                    <div class="col-lg-6 text-end">
+                                        <a href="/book/<%= novel.title %>">
+                                            <img src="<%= novel.image %>" alt="<%= novel.title %>">
+                                        </a>
+                                    </div>
+                                </div>
+                            <% } %>
+                        </section>
+                    </div>
+    
+                </section> 
+            </div>
             
-            <!-- The reading list is shown here-->
-            <section id="reading-list">
-                <h2>Recommended <b>READING LIST</b></h2>
-
-                <form action="/" method="post" class="align-self-center align-self-lg-end mb-4">
-                    <button id="btn-custom">Refresh</button>
-                </form>
-
-                <div id="book-list">
-                    <h3>Monday-Wednesday</h3>
-                    <section class="list mon-to-wed">
-                        <% const textbook = books.find(book => book.category === 'TEXTBOOK'); %>
-                        <% if (textbook) { %>
-                            <div class="book-card">
-                                <a href="/book/<%= textbook.title %>">
-                                    <img src="<%= textbook.image %>" alt="<%= textbook.title %>">
-                                    <p><strong><%= textbook.title %> by <%= textbook.author %></strong></p>
-                                </a>
-                                <p><%= textbook.description %></p>
-                                <p><%= textbook.category %></p>
-                            </div>
-                        <% } %>
-                    </section>
-
-                    <h3>Thursday-Friday</h3>
-                    <section class="list thu-to-fri">
-                        <% const philosophy = books.find(book => book.category === 'PHILOSOPHY'); %>
-                        <% if (philosophy) { %>
-                            <div class="book-card">
-                                <a href="/book/<%= philosophy.title %>">
-                                    <img src="<%= philosophy.image %>" alt="<%= philosophy.title %>">
-                                    <p><strong><%= philosophy.title %> by <%= philosophy.author %></strong></p>
-                                </a>
-                                <p><%= philosophy.description %></p>
-                                <p><%= philosophy.category %></p>
-                            </div>
-                        <% } %>
-                    </section>
-
-                    <h3>Saturday-Sunday</h3>
-                    <section class="list sat-to-sun">
-                        <% const novel = books.find(book => book.category === 'NOVEL'); %>
-                        <% if (novel) { %>
-                            <div class="book-card">
-                                <a href="/book/<%= novel.title %>">
-                                    <img src="<%= novel.image %>" alt="<%= novel.title %>">
-                                    <p><strong><%= novel.title %> by <%= novel.author %></strong></p>
-                                </a>
-                                <p><%= novel.description %></p>
-                                <p><%= novel.category %></p>
-                            </div>
-                        <% } %>
-                    </section>
-                </div>
-
-            </section> 
         </main>
             
         <!-- Footer -->
