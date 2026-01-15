@@ -32,6 +32,46 @@ const { Book } = require('./db/bookModel');
 
 /** Routes */
 // Homepage endpoint that when accessed will produce a random reading list for a week
+
+/*
+let lastDisplayedIds = [];
+
+app.get('/', async function (req, res) {
+    try {
+        const books = await Book.find({});
+        
+        const getRandomByCategory = (category) => {
+            const filtered = books.filter(book => book.category === category);
+            
+            if (filtered.length <= 1) return filtered[0] || null;
+
+            let newBook;
+            do {
+                // Pick a random book from the filtered list
+                newBook = filtered[Math.floor(Math.random() * filtered.length)];
+            } while (lastDisplayedIds.includes(newBook._id.toString())); 
+            // Loop keeps running if the new book's ID was in the last list
+
+            return newBook;
+        }
+
+        const textbook = getRandomByCategory('TEXTBOOK');
+        const philosophy = getRandomByCategory('PHILOSOPHY');
+        const novel = getRandomByCategory('NOVEL');
+
+        const displayedBooks = [textbook, philosophy, novel].filter(b => b !== null);
+
+        // 2. Update the "memory" with the current IDs for the NEXT refresh
+        lastDisplayedIds = displayedBooks.map(b => b._id.toString());
+
+        res.render('list', { books: displayedBooks });
+    } catch (err) {
+        console.error(err);
+        res.status(500).render('list', { books: [] });
+    }
+}); 
+*/
+
 app.get('/', async function (req, res) {
     try {
         const books = await Book.find({});
