@@ -167,7 +167,7 @@ header nav {
     }
 
     .related-item:hover .image-overlay-wrapper::after {
-        background: linear-gradient(to bottom, transparent 30%, rgba(13, 110, 253, 0.6) 100%); /* Changes to a blue tint on hover */
+        background: linear-gradient(to top, transparent 30%, rgba(13, 110, 253, 0.6) 100%); /* Changes to a blue tint on hover */
     }
 }
 
@@ -247,16 +247,66 @@ header nav {
     }
 
     /* book.ejs */
+    .breadcrumbs {
+        margin-top: 10px;
+    }
+    
+    .book-text-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 80%);
+    }
 
+    .related-list {
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .related-books h3 {
+        text-align: center;
+    }
+
+    .related-item .card-text {
+        /* Ensures long titles don't break the 3-column alignment */
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        line-height: 1.6;
+        max-width: 1000px;
+        font-size: 1.1rem;
+    }
+
+    .image-overlay-wrapper::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 80%);
+        pointer-events: none; 
+        transition: opacity 0.3s ease;
+    }
+
+    .image-overlay-wrapper img {
+        transition: transform 0.3s ease;
+        align-items: center;
+        width: 100%;
+        object-fit: cover;
+    }
 
     body {
         display: flex;
         flex-direction: column;
         min-height: 100vh;
-    }
-
-    .container.flex-grow-1 {
-        flex: 1;
     }
 
     footer {
